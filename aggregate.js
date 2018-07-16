@@ -41,14 +41,14 @@ const aggregate = filePath => new Promise((resolve, reject) => {
     Data.forEach((row) => {
       const val = row.split(',');
       if (mapperData[val[countryIndex]] !== undefined) {
-        const continentNm = mapperData[val[countryIndex]];
-        if (continent[continentNm] === undefined) {
-          continent[continentNm] = {};
-          continent[continentNm].GDP_2012 = parseFloat(val[gdp2012Index]);
-          continent[continentNm].POPULATION_2012 = parseFloat(val[pop2012Index]);
+        const contName = mapperData[val[countryIndex]];
+        if (continent[contName] === undefined) {
+          continent[contName] = {};
+          continent[contName].GDP_2012 = parseFloat(val[gdp2012Index]);
+          continent[contName].POPULATION_2012 = parseFloat(val[pop2012Index]);
         } else {
-          continent[continentNm].GDP_2012 += parseFloat(val[gdp2012Index]);
-          continent[continentNm].POPULATION_2012 += parseFloat(val[pop2012Index]);
+          continent[contName].GDP_2012 += parseFloat(val[gdp2012Index]);
+          continent[contName].POPULATION_2012 += parseFloat(val[pop2012Index]);
         }
       }
     });
